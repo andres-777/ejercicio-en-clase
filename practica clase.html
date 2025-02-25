@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 2</title>
+    <style>
+        body{
+
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0,1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input, select, textarea{
+
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1 style="color: blue;">Registro de personas</h1>
+        <form id="formPersona">
+            <fieldset>
+                 <legend>Datos personales</legend>
+                 <label for="nombre">Nombre:</label>
+                 <input type="text" name="nombre" id="nombre" required>
+
+                 <label for="apellido">Apellido:</label>
+                 <input type="text" name="apellido" id="apellido" required>
+
+                 <label for="edad">Edad:</label>
+                 <input type="number" name="edad" id="edad" required min="1">
+
+                 <label for="genero">Genero</label>
+                 <select name="genero" id="genero">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otros">Otros</option>
+
+
+
+                 </select>
+            </fieldset>
+
+            <fieldset>
+                <legend>Datos de Contacto</legend>
+                <label for="telefono">Telefono:</label>
+                 <input type="text" name="telefono" id="telefono" required>
+
+                 <label for="correo">correo:</label>
+                 <input type="text" name="correo" id="correo" required>
+            </fieldset>
+            <fieldset>
+                <legend>Datos Adicionales</legend>
+                <label for="direccion">Direccion:</label>
+                 <input type="text" name="direccion" id="direccion" required>
+
+                 <label for="fecha">Fecha de nacimiento:</label>
+                 <input type="date" name="fecha " id="fecha" required>
+            </fieldset>
+            
+            <input type="submit" style="background-color: slategrey;" value="Guardar">
+        </form>
+    </div>
+    <script>
+        const personas =[];
+        document.getElementById("formPersona").addEventListener("submit", function(event){
+                event.preventDefault();
+                const persona={
+
+                nombre: document.getElementById("nombre").value,
+                apellido: document.getElementById("apellido").value,
+                edad: document.getElementById("edad").value,
+                genero: document.getElementById("genero").value,
+                correo: document.getElementById("correo").value,
+                telefono: document.getElementById("telefono").value,
+                direccion: document.getElementById("direccion").value,
+                fecha: document.getElementById("fecha").value
+            };
+            alert(JSON.stringify(persona));
+
+        })
+
+    </script>
+</body>
+</html>
